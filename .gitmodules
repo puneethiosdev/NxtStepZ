@@ -1,3 +1,6 @@
 [submodule "NxtStepZ/Vendor/MagicalRecord"]
 	path = NxtStepZ/Vendor/MagicalRecord
 	url = https://github.com/magicalpanda/MagicalRecord.git
+[submodule "Vendor/MagicalRecord"]
+	path = Vendor/MagicalRecord
+	url = https://github.com/magicalpanda/MagicalRecord.git
