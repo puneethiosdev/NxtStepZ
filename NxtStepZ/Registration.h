@@ -8,23 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Validation.h"
 #import "GCPlaceholderTextView.h"
-#import "STCollapseTableView.h"
-#import "homeViewController.h" 
+//#import "STCollapseTableView.h"
+//#import "homeViewController.h"
 #import "MBProgressHUD.h"
 #import "AKSegmentedControl.h"
 
-#import "SlideMenuTableViewController.h"
-#import "JASidePanelController.h"
+//#import "SlideMenuTableViewController.h"
+//#import "JASidePanelController.h"
 
 
-@interface Registration : UIViewController <UITextViewDelegate,MBProgressHUDDelegate>{
+@interface Registration : UIViewController <UITextViewDelegate,MBProgressHUDDelegate,UIActionSheetDelegate>{
     
     
     NSMutableArray *section1,*section2,*section3;
     
-    NSMutableArray *valueArray,*labelArray;
+    NSMutableArray *valueArray,*labelArray,*verticalArray;
     
+    int selectedSegment,selectedIndex;
     
     
     IBOutlet UITableView *tblView;

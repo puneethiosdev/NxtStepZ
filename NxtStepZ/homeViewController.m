@@ -117,6 +117,7 @@
     
     
     [leftTabController.buttons enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+      
         UIButton *button = obj;
         button.titleLabel.numberOfLines = 2;
         button.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -329,19 +330,21 @@
 -(void)navigateToPostScreen:(NSMutableArray *)labelArrays andValueArray:(NSMutableArray *)valueArrays andTitle:(NSString *)text{
     
     
+//    
+//    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    // Profile
+//    userPostViewController *userController=[storyBoard instantiateViewControllerWithIdentifier:@"Post"];
+//    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:userController];
+//    
+//    userController.title = text;
+//    
+//    userController.labelArray = labelArrays;
+//    
+//    userController.valueArray = valueArrays;
+//    
+//    [self presentViewController:frontNavigationController  animated:YES completion:nil];
     
-    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    // Profile
-    userPostViewController *userController=[storyBoard instantiateViewControllerWithIdentifier:@"Post"];
-    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:userController];
     
-    userController.title = text;
-    
-    userController.labelArray = labelArrays;
-    
-    userController.valueArray = valueArrays;
-    
-    [self presentViewController:frontNavigationController  animated:YES completion:nil];
 }
 
 -(void)allPosts{

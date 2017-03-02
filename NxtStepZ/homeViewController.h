@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DKScrollingTabController.h"
 #import "CHTumblrMenuView.h"
-#import "userPostViewController.h"
+//#import "userPostViewController.h"
 #import "detailViewController.h"
 
 

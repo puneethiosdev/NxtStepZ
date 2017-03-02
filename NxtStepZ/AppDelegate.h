@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import <MagicalRecord/MagicalRecord.h>
+#import "Login+Extension.h"
+#import "SlideMenuTableViewController.h"
+#import "JASidePanelController.h"
+#import "homeViewController.h"
+#import "MainViewController.h"
+
+#import "NxtStepZ-Bridging-Header.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

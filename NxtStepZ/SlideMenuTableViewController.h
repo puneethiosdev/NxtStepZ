@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Intern.h"
+//#import "Intern.h"
 #import "CHTumblrMenuView.h"
+#import "Login.h"
+#import "Login+Extension.h"
+#import <MagicalRecord/MagicalRecord.h>
+#import "LoginViewController.h"
 
 
 

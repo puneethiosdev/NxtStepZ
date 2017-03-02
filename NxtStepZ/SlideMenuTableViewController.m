@@ -11,7 +11,7 @@
 #import "UIColor+Extension.h"
 #import "JASidePanelController.h"
 #import "UIViewController+Side.h"
-#import "Profile.h"
+//#import "Profile.h"
 
 
 @interface SlideMenuTableViewController (){
@@ -123,9 +123,9 @@
     
     if (indexPath.row == 0) {
         
-        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        Profile *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Profile"];
-        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:registerVC];
+//        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        Profile *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Profile"];
+//        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:registerVC];
     }
     if (indexPath.row == 1) {
         
@@ -160,48 +160,63 @@
     }
     if (indexPath.row == 2) {
         
-        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        Intern *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Intern"];
-        
-        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:registerVC];
-        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"MenuIndex"];
+//        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        Intern *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Intern"];
+//        
+//        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:registerVC];
+//        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"MenuIndex"];
 
     
     }
     if (indexPath.row == 3) {
         
-        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        Intern *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Intern"];
-        
-        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:registerVC];
-        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"MenuIndex"];
+//        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        Intern *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Intern"];
+//        
+//        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:registerVC];
+//        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"MenuIndex"];
 
     }
     if (indexPath.row == 4) {
         
-        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        Intern *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Intern"];
-        
-        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:registerVC];
-        [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"MenuIndex"];
+//        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        Intern *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Intern"];
+//        
+//        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:registerVC];
+//        [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"MenuIndex"];
 
         
     }
     if (indexPath.row == 6) {
         
-        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        Intern *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Review"];        
-        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:registerVC];
+//        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        Intern *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Review"];        
+//        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:registerVC];
         
     }
     
     if (indexPath.row == 8) {
         
-        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        Intern *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Social"];
-        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:registerVC];
+//        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        Intern *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Social"];
+//        self.sidePanelController.centerPanel = [[UINavigationController alloc] initWithRootViewController:registerVC];
         
     }
+    
+     if (indexPath.row == 9) {
+         
+         Login *logi = [Login MR_findFirst];
+         logi.status = [NSNumber numberWithInt:0];
+         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+
+        
+         UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+          LoginViewController *registerVC=[storyBoard instantiateViewControllerWithIdentifier:@"Viewcontroller"];
+         [self presentViewController:registerVC animated:YES completion:nil];
+         
+
+
+     }
     
     
    /* NSString *text = nil;

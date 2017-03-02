@@ -10,4 +10,6 @@
 
 @interface Validation : NSObject
 
++ (BOOL)validateEmailWithString:(NSString*)checkString;
+
 @end

@@ -7,6 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "AFNetworkActivityIndicatorManager.h"
+#import "Login.h"
+#import "NxtStepZ-Swift.h"
+
+#define MR_SHORTHAND
+
+
 
 @interface AppDelegate ()
 
@@ -15,8 +22,49 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     // Override point for customization after application launch.
+    
+    [MagicalRecord setupAutoMigratingCoreDataStack];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"MyDatabase.sqlite"];
+
+    NSLog(@"%@",[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
+
+    Login *log = [Login MR_findFirst];
+    NSLog(@"status %@",log.status);
+    
+    if ([log.status isEqualToNumber:[NSNumber numberWithInt:1]]) {
+        
+        UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        // Profile
+        MainViewController *profileScreen=[storyBoard instantiateViewControllerWithIdentifier:@"Home"];
+      //  SlideMenuTableViewController *leftMenu=[[SlideMenuTableViewController alloc]initWithStyle:UITableViewStylePlain];
+        UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:profileScreen];
+        
+      /*  JASidePanelController* viewController = [[JASidePanelController alloc] init];
+        viewController .shouldDelegateAutorotateToVisiblePanel = NO;
+        viewController .leftPanel = leftMenu;
+        viewController .centerPanel =frontNavigationController;*/
+      
+        self.window.rootViewController = frontNavigationController;
+        [self.window makeKeyAndVisible];
+
+    }
+
+    
+    
+    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
+    [NSURLCache setSharedURLCache:URLCache];
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+
+    
+    
+    
+    
+
+    
+    
     return YES;
 }
 
@@ -42,6 +90,9 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+    [MagicalRecord cleanUp];
+    
+    
 }
 
 #pragma mark - Core Data stack
@@ -71,6 +122,7 @@
         return _persistentStoreCoordinator;
     }
     
+
     // Create the coordinator and store
     
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -92,6 +144,8 @@
     
     return _persistentStoreCoordinator;
 }
+
+
 
 
 - (NSManagedObjectContext *)managedObjectContext {
